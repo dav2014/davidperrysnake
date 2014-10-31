@@ -112,7 +112,13 @@ function snakeUpdate () {
         food.x = randomX;
         food.y = randomY;
     }
-    
+    /*-------------------------------------------------------------
+     * Input functions
+     *-------------------------------------------------------------
+     */
     function keyboardHandler (event) {
         console.loog(event);
+        if(event.keyCode == "68"){
+            snakeDirection = "right";
+        }
     }
