@@ -33,10 +33,11 @@ var scoreboard;
  * ----------------------------------------------------------------------------
  */
 
+
 gameInitialize();
 snakeInitialize();
 foodInitialize();
-setInterval(gameLoop, 1000/30); // This makes the function in pparenthesses to loop in milliseconds.
+setInterval(gameLoop, 1000/10); // This makes the function in pparenthesses to loop in milliseconds.
 
 /* ----------------------------------------------------------------------------
  * Game Functions
@@ -104,10 +105,10 @@ function gameRestart() { // Tells the game to do this when the game restarts.
 
 function snakeInitialize() { //  Tells the snake how long and big the snake to be and tells it to go down.
     snake = [];
-    snakeLength = 1;
+    snakeLength = 10;
     snakeSize = 20;
     snakeDirection = "right";
-    
+   
     for(var index = snakeLength - 1; index >= 0; index--) { // 
         snake.push( {
             x: index,
@@ -118,9 +119,9 @@ function snakeInitialize() { //  Tells the snake how long and big the snake to b
 
 function snakeDraw() { // Draws the snake's color and makes the snake like a line.
     for(var index = 0; index < snake.length; index++) {
-        context.fillStyle = "red";
+        context.fillStyle = "green";
         context.fillRect(snake[index].x * snakeSize, snake[index].y * snakeSize, snakeSize, snakeSize);
-        context.strokeStyle = "rgb(255, 179, 0)";
+        context.strokeStyle = "rgb(125, 245, 0)";
         context.strokeRect(snake[index].x * snakeSize, snake[index].y * snakeSize, snakeSize, snakeSize);
     }
 }
@@ -197,7 +198,7 @@ function keyboardHandler(event) { // Tells the console what key was pressed down
     
     // The following lines of code control the snake movement.
     
-    if(event.keyCode == "39" && snakeDirection != "left" || event.keyCode == "68" && snakeDirection != "left") {
+    if(event.keyCode === 39 && snakeDirection != "left" || event.keyCode == "68" && snakeDirection != "left") {
         snakeDirection = "right";
     }
     else if(event.keyCode == "40" && snakeDirection != "up" || event.keyCode == "83" && snakeDirection != "up") {
