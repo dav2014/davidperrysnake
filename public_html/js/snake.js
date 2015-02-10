@@ -143,6 +143,15 @@ function snakeUpdate() { // Updates the snake after it has eaten a piece of food
     }
     else if(snakeDirection === "up") {
         snakeHeadY--;
+    if(nx == food.x && ny == food.y)
+  {
+    var tail = {x: nx, y: ny};
+    create_food();
+    score++;
+    eating_sound.play();
+  }
+    
+    
     }
     
     //
